@@ -37,7 +37,7 @@ Python 3.8+
 Claude API key (get one at console.anthropic.com)
 Internet connection for RSS feeds and article scraping
 
-## Python Dependencies
+## Python dependencies
 Copyfeedparser>=6.0.10
 requests>=2.31.0
 beautifulsoup4>=4.12.2
@@ -46,7 +46,7 @@ python-dotenv>=1.0.0
 
 ## Configuration
 
-### Add Your Newsletters
+### Add your newsletters
 Edit the newsletter_feeds list in create_digest.py:
 pythonCopyself.newsletter_feeds = [
     "https://yournewsletter.substack.com/feed",
@@ -91,7 +91,7 @@ Additional articles grouped by category (AI News, Strategy & Business, etc.)
 Paywall indicators for restricted content
 Direct links to all original articles
 
-### File Structure
+### File structure
 Copysubstack-digest-generator/
 ├── orchestrator.py           # Main script
 ├── requirements.txt          # Python dependencies
