@@ -1,0 +1,6 @@
+feedparser==6.0.10
+anthropic==0.7.8
+beautifulsoup4==4.12.2
+requests==2.31.0
+apscheduler==3.10.4
+python-dotenv==1.0.0
