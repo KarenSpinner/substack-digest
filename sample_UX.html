@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Substack Digest - Smart Newsletter Curation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .main-panel {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .description-banner {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            padding: 25px 30px;
+            text-align: center;
+        }
+
+        .description-banner h2 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .description-banner p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            line-height: 1.5;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 18px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            font-size: 15px;
+        }
+
+        .tab.active {
+            background: white;
+            border-bottom-color: #ff6b35;
+            color: #ff6b35;
+        }
+
+        .tab-content {
+            padding: 25px 30px;
+            min-height: 550px;
+        }
+
+        .step-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .step-header h2 {
+            font-size: 1.6rem;
+            color: #2d3748;
+            margin-bottom: 8px;
+        }
+
+        .step-header p {
+            font-size: 1rem;
+            color: #718096;
+            line-height: 1.5;
+        }
+
+        .progress-bar {
+            background: #e2e8f0;
+            height: 6px;
+            border-radius: 3px;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            transition: width 0.3s ease;
+            border-radius: 3px;
+        }
+
+        .step-content {
+            margin-bottom: 25px;
+        }
+
+        .newsletter-search {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 45px 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 15px;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #ff6b35;
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 4px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #ff6b35;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .quick-add {
+            background: #fff4f0;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ff6b35;
+        }
+
+        .quick-add h4 {
+            margin-bottom: 10px;
+            color: #2d3748;
+            font-size: 15px;
+        }
+
+        .quick-add-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .quick-add-btn {
+            background: #ff6b35;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .newsletter-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-card {
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .newsletter-card:hover {
+            background: #e9ecef;
+            transform: translateY(-1px);
+        }
+
+        .newsletter-card.selected {
+            border-color: #ff6b35;
+            background: #fff4f0;
+        }
+
+        .newsletter-card h4 {
+            font-size: 15px;
+            margin-bottom: 6px;
+            color: #2d3748;
+            padding-right: 60px;
+        }
+
+        .newsletter-card p {
+            font-size: 13px;
+            color: #718096;
+            margin-bottom: 8px;
+        }
+
+        .newsletter-count {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #ff6b35;
+            color: white;
+            padding: 3px 6px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .selected-summary {
+            background: #fff4f0;
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid #ff6b35;
+            text-align: center;
+        }
+
+        .selected-summary h4 {
+            font-size: 1.1rem;
+            color: #2d3748;
+            margin-bottom: 8px;
+        }
+
+        .selected-count {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ff6b35;
+            margin-bottom: 8px;
+        }
+
+        .selected-summary p {
+            font-size: 14px;
+            color: #718096;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 1rem;
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 15px;
+            background: white;
+        }
+
+        .form-checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .checkbox-item:hover {
+            background: #e9ecef;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+        }
+
+        .checkbox-item label {
+            font-size: 14px;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .nav-btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn.back {
+            background: #f8f9fa;
+            color: #718096;
+            border: 2px solid #e2e8f0;
+        }
+
+        .nav-btn.back:hover {
+            background: #e9ecef;
+            color: #2d3748;
+        }
+
+        .nav-btn.next, .nav-btn.generate {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            min-width: 120px;
+        }
+
+        .nav-btn.next:hover, .nav-btn.generate:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+        }
+
+        .step-indicator {
+            text-align: center;
+            color: #718096;
+            font-size: 14px;
+        }
+
+        .settings-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .stats-card {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .stats-number {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .stats-label {
+            opacity: 0.9;
+            font-size: 13px;
+        }
+
+        .recent-digests {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .recent-digests h4 {
+            margin-bottom: 15px;
+            color: #2d3748;
+        }
+
+        .digest-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .digest-item:last-child {
+            border-bottom: none;
+        }
+
+        .digest-date {
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .digest-stats {
+            font-size: 14px;
+            color: #718096;
+        }
+
+        .digest-link {
+            color: #ff6b35;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .digest-link:hover {
+            text-decoration: underline;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Two-column layout for step 3 */
+        .preferences-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+       
+
+        <div class="main-panel">
+            <div class="description-banner">
+                 <div class="header">
+            <h1>Substack Digest</h1>
+        </div>
+                <p>
+                  Add your favorite newsletters. We’ll surface top articles with AI summaries <br>and list the rest by category.
+                </p>
+            </div>
+
+            <div class="tabs">
+                <div class="tab active" onclick="showMainTab('setup')">📰 Create Digest</div>
+                <div class="tab" onclick="showMainTab('settings')">⚙️ Settings</div>
+                <div class="tab" onclick="showMainTab('history')">📈 History</div>
+            </div>
+
+            <!-- Setup Flow -->
+            <div id="setup-tab" class="tab-content">
+                <!-- Step 1: Add Newsletters -->
+                <div id="step-1" class="setup-step">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 33%"></div>
+                    </div>
+                    
+                    <div class="step-header">
+                        <h2>📚 Add Your Newsletters</h2>
+                        <p>Choose from popular newsletters or add your own by URL</p>
+                    </div>
+
+                    <div class="step-content">
+                        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 25px;">
+                            <div>
+                                <div class="quick-add">
+                                    <h4>Quick Add by URL</h4>
+                                    <input type="text" class="quick-add-input" placeholder="Paste any Substack URL (e.g., yourfavorite.substack.com)" />
+                                    <button class="quick-add-btn">+ Add Newsletter</button>
+                                </div>
+
+                                <div class="newsletter-search">
+                                    <input type="text" class="search-input" placeholder="Search by topic, author, or newsletter name..." />
+                                    <button class="search-btn">Search</button>
+                                </div>
+
+                                <div class="newsletter-grid">
+                                    <div class="newsletter-card selected">
+                                        <span class="newsletter-count">Daily</span>
+                                        <h4>Morning Brew</h4>
+                                        <p>Business news and insights</p>
+                                    </div>
+                                    <div class="newsletter-card">
+                                        <span class="newsletter-count">Daily</span>
+                                        <h4>The Hustle</h4>
+                                        <p>Entrepreneurship and startups</p>
+                                    </div>
+                                    <div class="newsletter-card selected">
+                                        <span class="newsletter-count">Weekly</span>
+                                        <h4>Dense Discovery</h4>
+                                        <p>Design and creative resources</p>
+                                    </div>
+                                    <div class="newsletter-card">
+                                        <span class="newsletter-count">Weekly</span>
+                                        <h4>The Profile</h4>
+                                        <p>People and career stories</p>
+                                    </div>
+                                    <div class="newsletter-card selected">
+                                        <span class="newsletter-count">3x/week</span>
+                                        <h4>Platformer</h4>
+                                        <p>Tech industry analysis</p>
+                                    </div>
+                                    <div class="newsletter-card">
+                                        <span class="newsletter-count">Weekly</span>
+                                        <h4>Cook This Newsletter</h4>
+                                        <p>Cooking tips and recipes</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="selected-summary">
+                                    <div class="selected-count">3</div>
+                                    <h4>Newsletters Selected</h4>
+                                    <p>Morning Brew<br>Dense Discovery<br>Platformer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="navigation-buttons">
+                        <div class="step-indicator">Step 1 of 3</div>
+                        <button class="nav-btn next" onclick="nextStep(2)">Next: Time Period →</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Time Period -->
+                <div id="step-2" class="setup-step hidden">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 66%"></div>
+                    </div>
+                    
+                    <div class="step-header">
+                        <h2>⏰ Choose Time Period</h2>
+                        <p>How far back should we look for articles?</p>
+                    </div>
+
+                    <div class="step-content">
+                        <div style="max-width: 500px; margin: 0 auto;">
+                            <div class="form-group">
+                                <label class="form-label">Look back period</label>
+                                <select class="form-select">
+                                    <option value="1">Last 24 hours</option>
+                                    <option value="3">Last 3 days</option>
+                                    <option value="7" selected>Last week (Recommended)</option>
+                                    <option value="14">Last 2 weeks</option>
+                                    <option value="30">Last month</option>
+                                </select>
+                            </div>
+
+                            <div class="selected-summary">
+                                <div class="selected-count">~42</div>
+                                <h4>Expected Articles</h4>
+                                <p>Based on your selected newsletters and time period</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="navigation-buttons">
+                        <button class="nav-btn back" onclick="nextStep(1)">← Back</button>
+                        <div class="step-indicator">Step 2 of 3</div>
+                        <button class="nav-btn next" onclick="nextStep(3)">Next: Preferences →</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Preferences -->
+                <div id="step-3" class="setup-step hidden">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%"></div>
+                    </div>
+                    
+                    <div class="step-header">
+                        <h2>🎯 Set Your Preferences</h2>
+                        <p>Customize how we analyze and organize your articles</p>
+                    </div>
+
+                    <div class="step-content">
+                        <div class="preferences-layout">
+                            <div>
+                                <div class="form-group">
+                                    <label class="form-label">Featured articles count</label>
+                                    <select class="form-select">
+                                        <option value="3">3 articles (Quick read)</option>
+                                        <option value="5">5 articles (Balanced)</option>
+                                        <option value="7" selected>7 articles (Comprehensive)</option>
+                                        <option value="10">10 articles (Deep dive)</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Quality scoring priorities</label>
+                                    <div class="form-checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="quality-length" checked>
+                                            <label for="quality-length">Article length</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="quality-engagement" checked>
+                                            <label for="quality-engagement">Comments</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="quality-keywords">
+                                            <label for="quality-keywords">Keyword matching</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="quality-freshness">
+                                            <label for="quality-freshness">Recency boost</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="form-group">
+                                    <label class="form-label">Priority keywords (optional)</label>
+                                    <input type="text" class="search-input" placeholder="startup, remote work, productivity" />
+                                    <small style="color: #718096; font-size: 13px; display: block; margin-top: 8px;">
+                                        Articles containing these keywords will be scored higher
+                                    </small>
+                                </div>
+
+                                <div class="selected-summary">
+                                    <div class="selected-count">7</div>
+                                    <h4>Articles to Summarize</h4>
+                                    <p>~35 additional articles<br>will be categorized</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="navigation-buttons">
+                        <button class="nav-btn back" onclick="nextStep(2)">← Back</button>
+                        <div class="step-indicator">Step 3 of 3</div>
+                        <button class="nav-btn generate" onclick="generateDigest()">🚀 Generate Digest</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Tab -->
+            <div id="settings-tab" class="tab-content hidden">
+                <div class="settings-grid">
+                    <div>
+                        <div class="step-header">
+                            <h2>⚙️ AI Settings</h2>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">AI Model</label>
+                            <select class="form-select">
+                                <option value="claude-3.5" selected>Claude Sonnet 4 (Recommended)</option>
+                                <option value="claude-3">Claude 4 Opus (More creative)</option>
+                                <option value="gpt-4">GPT-4 (Alternative)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Summary Style</label>
+                            <select class="form-select">
+                                <option value="concise" selected>Concise (2-3 sentences)</option>
+                                <option value="detailed">Detailed (1 paragraph)</option>
+                                <option value="bullet">Bullet points</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="step-header">
+                            <h2>📧 Automation</h2>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Schedule</label>
+                            <select class="form-select">
+                                <option value="manual" selected>Manual only</option>
+                                <option value="daily">Daily at 8 AM</option>
+                                <option value="weekly">Weekly on Monday</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email digest to</label>
+                            <input type="email" class="search-input" placeholder="your@email.com" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- History Tab -->
+            <div id="history-tab" class="tab-content hidden">
+                <div class="settings-grid">
+                    <div class="stats-card">
+                        <div class="stats-number">47</div>
+                        <div class="stats-label">Digests Generated</div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-number">1,249</div>
+                        <div class="stats-label">Articles Processed</div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-number">23</div>
+                        <div class="stats-label">Newsletters Tracked</div>
+                    </div>
+                </div>
+
+                <div class="recent-digests">
+                    <h4>Recent Digests</h4>
+                    <div class="digest-item">
+                        <div>
+                            <div class="digest-date">August 6, 2024</div>
+                            <div class="digest-stats">7 featured • 42 additional articles</div>
+                        </div>
+                        <a href="#" class="digest-link">View →</a>
+                    </div>
+                    <div class="digest-item">
+                        <div>
+                            <div class="digest-date">July 30, 2024</div>
+                            <div class="digest-stats">5 featured • 31 additional articles</div>
+                        </div>
+                        <a href="#" class="digest-link">View →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+
+        function nextStep(step) {
+            // Hide all steps
+            document.querySelectorAll('.setup-step').forEach(s => s.classList.add('hidden'));
+            
+            // Show target step
+            document.getElementById(`step-${step}`).classList.remove('hidden');
+            currentStep = step;
+        }
+
+        function showMainTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName + '-tab').classList.remove('hidden');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+
+            // Reset to step 1 if going back to setup
+            if (tabName === 'setup') {
+                nextStep(1);
+            }
+        }
+
+        function generateDigest() {
+            alert('🚀 Generating your digest! This would trigger the Python script.');
+        }
+
+        // Newsletter card selection
+        document.querySelectorAll('.newsletter-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.classList.toggle('selected');
+                
+                // Update counter
+                const selected = document.querySelectorAll('.newsletter-card.selected').length;
+                document.querySelector('.selected-count').textContent = selected;
+            });
+        });
+    </script>
+</body>
+</html>
