@@ -9,8 +9,11 @@ Automatically generate curated digests of your favorite Substack newsletters wit
 This tool collects articles from your subscribed newsletters, scores them based on content quality and engagement, then uses Claude AI to create summaries of the most interesting pieces. You get a formatted HTML digest with:
 
 Featured articles with AI summaries (top 7 by default)
+
 Additional articles organized by category with links
+
 Quality scores based on word count and comment engagement
+
 Paywall detection so you know what's freely accessible (needs work)
 
 ## Quick start
