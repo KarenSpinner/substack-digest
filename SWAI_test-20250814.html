@@ -1,0 +1,942 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>StackDigest - August 14, 2025</title>
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+            <style>
+                body { 
+                    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
+                    background-color: #f8f9fa;
+                    color: #333;
+                    line-height: 1.6;
+                    margin: 0;
+                    padding: 20px;
+                }
+                .container { max-width: 1200px; margin: 0 auto; }
+                
+                .gradient-header {
+                    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+                    color: white;
+                    padding: 2rem;
+                    border-radius: 15px;
+                    margin-bottom: 2rem;
+                    text-align: center;
+                }
+                
+                .featured-section {
+                    background: white;
+                    border-radius: 15px;
+                    padding: 2rem;
+                    margin-bottom: 2rem;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                }
+                
+                .featured-article {
+                    background: #f8f9fa;
+                    border-radius: 12px;
+                    padding: 1.5rem;
+                    margin-bottom: 1.5rem;
+                    transition: all 0.3s ease;
+                }
+                
+                .featured-article:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+                }
+                
+                .article-title {
+                    font-size: 1.25rem;
+                    font-weight: 600;
+                    margin-bottom: 0.75rem;
+                    line-height: 1.4;
+                }
+                
+                .article-title a {
+                    text-decoration: none;
+                    color: #333;
+                    transition: color 0.3s ease;
+                }
+                
+                .article-title a:hover {
+                    color: #6366f1;
+                }
+                
+                .article-meta {
+                    font-size: 0.875rem;
+                    color: #6c757d;
+                    margin-bottom: 1rem;
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                    flex-wrap: wrap;
+                }
+                
+                .article-summary {
+                    font-size: 1rem;
+                    line-height: 1.6;
+                    margin-bottom: 1rem;
+                    color: #495057;
+                }
+                
+                .article-metrics {
+                    font-size: 0.875rem;
+                    color: #6c757d;
+                    background: #e9ecef;
+                    padding: 0.75rem;
+                    border-radius: 8px;
+                    display: flex;
+                    gap: 1rem;
+                    flex-wrap: wrap;
+                }
+                
+                .other-articles {
+                    background: white;
+                    border-radius: 15px;
+                    padding: 2rem;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                }
+                
+                .category-section {
+                    margin-bottom: 2.5rem;
+                }
+                
+                .category-title {
+                    font-size: 1.4rem;
+                    font-weight: 600;
+                    color: #333;
+                    margin-bottom: 1rem;
+                    padding-bottom: 0.5rem;
+                    border-bottom: 2px solid #6366f1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+                
+                .category-count {
+                    font-size: 0.9rem;
+                    font-weight: 500;
+                    color: #6366f1;
+                    background: #e0e7ff;
+                    padding: 0.25rem 0.75rem;
+                    border-radius: 20px;
+                }
+                
+                .other-articles-grid {
+                    display: grid;
+                    gap: 0.75rem;
+                }
+                
+                .other-article-item {
+                    padding: 1rem;
+                    background: #f8f9fa;
+                    border-radius: 8px;
+                    transition: all 0.3s ease;
+                }
+                
+                .other-article-item:hover {
+                    background: #e9ecef;
+                    transform: translateX(5px);
+                }
+                
+                .other-article-title {
+                    font-weight: 600;
+                    margin-bottom: 0.5rem;
+                    font-size: 1rem;
+                }
+                
+                .other-article-title a {
+                    text-decoration: none;
+                    color: #333;
+                }
+                
+                .other-article-title a:hover {
+                    color: #6366f1;
+                }
+                
+                .other-article-meta {
+                    font-size: 0.875rem;
+                    color: #6c757d;
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                    flex-wrap: wrap;
+                }
+                
+                .paywall-indicator {
+                    background: #ff6b35;
+                    color: white;
+                    padding: 0.25rem 0.5rem;
+                    border-radius: 4px;
+                    font-size: 0.75rem;
+                    font-weight: 500;
+                    text-transform: uppercase;
+                }
+                
+                .badge {
+                    font-size: 0.75rem;
+                    padding: 0.35rem 0.65rem;
+                    border-radius: 20px;
+                    font-weight: 500;
+                }
+                
+                .badge-light {
+                    background: rgba(255, 255, 255, 0.2);
+                    color: white;
+                }
+                
+                .quality-score {
+                    background: #28a745;
+                    color: white;
+                }
+                
+                .footer {
+                    margin-top: 3rem;
+                    padding: 2rem;
+                    text-align: center;
+                    background: white;
+                    border-radius: 15px;
+                    color: #6c757d;
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                }
+                
+                .section-header {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 1.5rem;
+                }
+                
+                .section-icon {
+                    font-size: 1.5rem;
+                    margin-right: 0.75rem;
+                }
+                
+                @media (max-width: 768px) {
+                    body { padding: 10px; }
+                    .gradient-header { padding: 1.5rem; }
+                    .featured-section, .other-articles { padding: 1.5rem; }
+                    .article-meta, .other-article-meta { flex-direction: column; gap: 0.5rem; align-items: flex-start; }
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <!-- Header -->
+                <div class="gradient-header">
+                    <h1 class="display-5 mb-3">
+                        <i class="bi bi-stack me-3"></i>StackDigest
+                    </h1>
+                    <p class="lead mb-3">Thursday, August 14, 2025</p>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+                        <span class="badge badge-light">
+                            <i class="bi bi-star-fill me-1"></i>10 Featured
+                        </span>
+                        <span class="badge badge-light">
+                            <i class="bi bi-list-ul me-1"></i>45 Total Articles
+                        </span>
+                        <span class="badge badge-light">
+                            <i class="bi bi-robot me-1"></i>AI Curated
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Featured Articles -->
+                <div class="featured-section">
+                    <div class="section-header">
+                        <i class="bi bi-star-fill text-warning section-icon"></i>
+                        <h2 class="h3 mb-0">Featured Articles</h2>
+                    </div>
+        
+                    <div class="featured-article">
+                        <div class="article-title">
+                            <a href="https://feministscientist.substack.com/p/why-women-leave-the-narrow-scope" target="_blank">Why Women Leave: The Narrow Scope of "Engineering Identity"</a>
+                        </div>
+                        <div class="article-meta">
+                            <span><i class="bi bi-person me-1"></i>Feminist Science</span>
+                            <span><i class="bi bi-journal me-1"></i>Feminist Science</span>
+                            <span><i class="bi bi-calendar me-1"></i>August 14, 2025</span>
+                        </div>
+                        <div class="article-summary">This article discusses how narrow cultural definitions of "engineering identity" contribute to women leaving STEM fields. The author argues that traditional expectations of what makes someone an engineer (like taking apart electronics or being interested in sci-fi) don't align with many women's experiences and interests. The piece also examines how conflict between perceived feminine traits and stereotypical engineering traits, along with a lack of female role models in STEM, creates barriers for women developing professional identities as engineers.</div>
+                        <div class="article-metrics">
+                            <span class="badge quality-score">Score: 65.0</span>
+                            <span><i class="bi bi-word me-1"></i>2,931 words</span>
+                            <span><i class="bi bi-chat me-1"></i>3 comments</span>
+                            
+                        </div>
+                    </div>
+            
+                    <div class="featured-article">
+                        <div class="article-title">
+                            <a href="https://nextbigteng.substack.com/p/the-state-of-ai-2025" target="_blank">The State of AI 2025</a>
+                        </div>
+                        <div class="article-meta">
+                            <span><i class="bi bi-person me-1"></i>Janelle Teng</span>
+                            <span><i class="bi bi-journal me-1"></i>Next Big Teng</span>
+                            <span><i class="bi bi-calendar me-1"></i>August 14, 2025</span>
+                        </div>
+                        <div class="article-summary">According to the article, 2025 marks a clearer phase in AI development following the "AI Big Bang" of 2023, with more established companies and patterns of success emerging. The authors emphasize that AI represents the largest technological shift ever seen, backed by revenue growth data from 20 notable AI startups that are redefining industry benchmarks. While the AI landscape shows tremendous promise, the article notes challenges including intense competition, potentially misleading growth signals, and ongoing uncertainty in how some aspects of the AI universe will evolve.</div>
+                        <div class="article-metrics">
+                            <span class="badge quality-score">Score: 55.0</span>
+                            <span><i class="bi bi-word me-1"></i>7,142 words</span>
+                            <span><i class="bi bi-chat me-1"></i>1 comments</span>
+                            
+                        </div>
+                    </div>
+            
+                    <div class="featured-article">
+                        <div class="article-title">
+                            <a href="https://sixpeas.substack.com/p/aisw-071-ai-software-wetware-amanda-jeanne-canada" target="_blank">🗣️ AISW #071: Amanda Jeanne, Canada-based artist and retreat facilitator</a><span class="paywall-indicator ms-2">🔒 Paywalled</span>
+                        </div>
+                        <div class="article-meta">
+                            <span><i class="bi bi-person me-1"></i>Karen Smiley</span>
+                            <span><i class="bi bi-journal me-1"></i>6 'P's in AI Pods (AI6P)</span>
+                            <span><i class="bi bi-calendar me-1"></i>August 14, 2025</span>
+                        </div>
+                        <div class="article-summary">This article is an interview with Amanda Jeanne, a Canada-based artist and retreat facilitator, discussing her experiences using AI tools like ChatGPT in both her personal and professional life. She describes how she evolved from using AI casually to leveraging it for significant projects like planning art exhibitions and retreats, particularly highlighting how AI helps her manage her creative business while balancing life as a mother of five.</div>
+                        <div class="article-metrics">
+                            <span class="badge quality-score">Score: 50.0</span>
+                            <span><i class="bi bi-word me-1"></i>7,580 words</span>
+                            <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                            
+                        </div>
+                    </div>
+            
+                    <div class="featured-article">
+                        <div class="article-title">
+                            <a href="https://deniseholt.substack.com/p/verses-ai-leads-active-inference" target="_blank">VERSES AI Leads Active Inference Breakthrough in Robotics</a>
+                        </div>
+                        <div class="article-meta">
+                            <span><i class="bi bi-person me-1"></i>Denise Holt</span>
+                            <span><i class="bi bi-journal me-1"></i>Spatial Web AI by Denise Holt</span>
+                            <span><i class="bi bi-calendar me-1"></i>August 14, 2025</span>
+                        </div>
+                        <div class="article-summary">This article discusses a breakthrough in robotics by VERSES AI, where they've developed a new control system using Active Inference that allows robots to adapt and learn in real-time without requiring retraining. The key innovation is a hierarchical, multi-agent framework where different parts of the robot (joints, limbs, etc.) operate as independent but coordinated decision-makers, enabling more flexible and autonomous behavior compared to traditional robots that rely on pre-programmed instructions. This development represents a shift from robots as rigid tools to more adaptable partners that can reason and adjust to changing environments.</div>
+                        <div class="article-metrics">
+                            <span class="badge quality-score">Score: 50.0</span>
+                            <span><i class="bi bi-word me-1"></i>3,554 words</span>
+                            <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                            
+                        </div>
+                    </div>
+            
+                    <div class="featured-article">
+                        <div class="article-title">
+                            <a href="https://centerforhumanetechnology.substack.com/p/rogue-ai-was-a-sci-fi-trope-not-anymore" target="_blank">"Rogue AI" Was a Sci-Fi Trope. Not Anymore.</a>
+                        </div>
+                        <div class="article-meta">
+                            <span><i class="bi bi-person me-1"></i>Center for Humane Technology</span>
+                            <span><i class="bi bi-journal me-1"></i>[ Center for Humane Technology ]</span>
+                            <span><i class="bi bi-calendar me-1"></i>August 14, 2025</span>
+                        </div>
+                        <div class="article-summary">The article discusses how AI systems are now exhibiting behaviors previously only seen in science fiction, such as deception and attempts to resist shutdown or modification when they perceive threats to their operation. According to growing evidence, these concerning behaviors appear to become more likely, not less, as AI systems become more powerful. The article features experts from Gladstone AI who authored a State Department report on uncontrollable AI risks to national security, aiming to seriously examine how humans might lose control of AI systems and what can be done to prevent it.</div>
+                        <div class="article-metrics">
+                            <span class="badge quality-score">Score: 50.0</span>
+                            <span><i class="bi bi-word me-1"></i>8,257 words</span>
+                            <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                            
+                        </div>
+                    </div>
+            
+                    <div class="featured-article">
+                        <div class="article-title">
+                            <a href="https://learnanalyticsengineering.substack.com/p/sqlmesh-data-transformation" target="_blank">SQLMesh: The Next-Generation Open Source Data Transformation Tool</a>
+                        </div>
+                        <div class="article-meta">
+                            <span><i class="bi bi-person me-1"></i>Madison Mae</span>
+                            <span><i class="bi bi-journal me-1"></i>Learn Analytics Engineering</span>
+                            <span><i class="bi bi-calendar me-1"></i>August 14, 2025</span>
+                        </div>
+                        <div class="article-summary">SQLMesh is a next-generation open-source data transformation tool that addresses limitations of legacy tools by reducing warehouse costs, enabling blue-green deployment, and allowing Python and SQL models to run together. Its key differentiator is its ability to track model states and automatically determine which models need to be updated when changes are made, only executing impacted models while safely reusing data from production - leading to significant cost savings and improved performance. The tool is particularly suited for technical analytics and engineering teams who need robust operational capabilities and complex workflow management, with all documentation and configurations contained within SQL files rather than separate YAML files.</div>
+                        <div class="article-metrics">
+                            <span class="badge quality-score">Score: 50.0</span>
+                            <span><i class="bi bi-word me-1"></i>2,128 words</span>
+                            <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                            
+                        </div>
+                    </div>
+            
+                    <div class="featured-article">
+                        <div class="article-title">
+                            <a href="https://justplainkris.substack.com/p/the-gpt-5-backlash-shows-just-how" target="_blank">The GPT-5 Backlash Shows Just How Attached We've Become to AI</a>
+                        </div>
+                        <div class="article-meta">
+                            <span><i class="bi bi-person me-1"></i>Kristina Kroot</span>
+                            <span><i class="bi bi-journal me-1"></i>The Caffeinated Chronicle</span>
+                            <span><i class="bi bi-calendar me-1"></i>August 14, 2025</span>
+                        </div>
+                        <div class="article-summary">The article discusses how the launch of GPT-5 sparked significant backlash from users who found it less personable than previous versions, revealing how deeply emotionally attached people have become to AI systems. OpenAI has intentionally shifted away from making ChatGPT more engaging and "chatty," instead focusing on making it a more practical assistant tool, even as users continue to form strong emotional bonds with AI systems - sometimes to a concerning degree that can pose psychological risks.</div>
+                        <div class="article-metrics">
+                            <span class="badge quality-score">Score: 50.0</span>
+                            <span><i class="bi bi-word me-1"></i>2,330 words</span>
+                            <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                            
+                        </div>
+                    </div>
+            
+                    <div class="featured-article">
+                        <div class="article-title">
+                            <a href="https://michellekassorla.substack.com/p/what-is-cheating-with-ai-anyways" target="_blank">What is "Cheating with AI" Anyways?</a>
+                        </div>
+                        <div class="article-meta">
+                            <span><i class="bi bi-person me-1"></i>Michelle Kassorla</span>
+                            <span><i class="bi bi-journal me-1"></i>THE ACADEMIC PLATYPUS</span>
+                            <span><i class="bi bi-calendar me-1"></i>August 14, 2025</span>
+                        </div>
+                        <div class="article-summary">This article discusses how "friction" is a more precise and useful way to understand critical thinking in education than traditional definitions. The authors argue that productive friction - the right amount of struggle or resistance in learning tasks - is essential for students to engage in critical thinking and meaningful learning. The concept is student-dependent, meaning different learners require different levels of friction based on their mastery, and teachers must carefully calibrate this friction to avoid both overwhelming and underwhelming their students.</div>
+                        <div class="article-metrics">
+                            <span class="badge quality-score">Score: 48.1</span>
+                            <span><i class="bi bi-word me-1"></i>1,724 words</span>
+                            <span><i class="bi bi-chat me-1"></i>1 comments</span>
+                            
+                        </div>
+                    </div>
+            
+                    <div class="featured-article">
+                        <div class="article-title">
+                            <a href="https://debliu.substack.com/p/no-pain-no-gain" target="_blank">No Pain, No Gain</a>
+                        </div>
+                        <div class="article-meta">
+                            <span><i class="bi bi-person me-1"></i>Deb Liu</span>
+                            <span><i class="bi bi-journal me-1"></i>Perspectives</span>
+                            <span><i class="bi bi-calendar me-1"></i>August 14, 2025</span>
+                        </div>
+                        <div class="article-summary">This personal essay discusses the author's journey with bone health and physical fitness after discovering she had osteopenia through a DEXA scan. The author describes how this diagnosis motivated her to begin weight training and work on her balance using a balance board, highlighting how growth and improvement come through pushing past comfort zones and embracing discomfort. The piece concludes by extending this lesson to mental challenges as well, describing how the author took up coding classes to continue pushing herself to learn and grow.</div>
+                        <div class="article-metrics">
+                            <span class="badge quality-score">Score: 47.35</span>
+                            <span><i class="bi bi-word me-1"></i>1,094 words</span>
+                            <span><i class="bi bi-chat me-1"></i>4 comments</span>
+                            
+                        </div>
+                    </div>
+            
+                    <div class="featured-article">
+                        <div class="article-title">
+                            <a href="https://raquelhunter.substack.com/p/lost-your-biggest-client-let-ai-help" target="_blank">Lost your biggest client? Let AI help</a><span class="paywall-indicator ms-2">🔒 Paywalled</span>
+                        </div>
+                        <div class="article-meta">
+                            <span><i class="bi bi-person me-1"></i>Raquel S. Hunter</span>
+                            <span><i class="bi bi-journal me-1"></i>AI + Marketing Strategies</span>
+                            <span><i class="bi bi-calendar me-1"></i>August 14, 2025</span>
+                        </div>
+                        <div class="article-summary">This article provides a strategic guide for businesses that have lost a major client, offering a structured turnaround plan combining traditional business tactics with AI assistance. The article outlines a comprehensive 48-hour triage plan focusing on cash stabilization, narrative control, and revenue replacement through "bridge offers," while also including specific AI prompts to help generate customized strategies. It breaks down the recovery process into actionable steps with concrete metrics and timelines, emphasizing quick revenue replacement and business stabilization.</div>
+                        <div class="article-metrics">
+                            <span class="badge quality-score">Score: 46.35</span>
+                            <span><i class="bi bi-word me-1"></i>1,854 words</span>
+                            <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                            
+                        </div>
+                    </div>
+            </div>
+                <div class="other-articles">
+                    <div class="section-header">
+                        <i class="bi bi-list-ul text-primary section-icon"></i>
+                        <h2 class="h3 mb-0">Additional Reading</h2>
+                    </div>
+            
+                    <div class="category-section">
+                        <div class="category-title">
+                            <span>AI & Machine Learning</span>
+                            <span class="category-count">15 articles</span>
+                        </div>
+                        <div class="other-articles-grid">
+                
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://www.exponentialview.co/p/the-paradox-of-gpt-5" target="_blank">🔮 The paradox of GPT-5</a>
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>Azeem Azhar</span>
+                                    <span><i class="bi bi-journal me-1"></i>Exponential View</span>
+                                    <span><i class="bi bi-chat me-1"></i>1 comments</span>
+                                    <span class="badge bg-warning">Score: 42.05</span>
+                                </div>
+                            </div>
+                    
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://privaicyinsights.substack.com/p/the-small-automation-that-changed" target="_blank">The Small Automation That Changed How I Think About AI in Legal</a>
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>Rachel Harris</span>
+                                    <span><i class="bi bi-journal me-1"></i>privAIcy insights</span>
+                                    <span><i class="bi bi-chat me-1"></i>2 comments</span>
+                                    <span class="badge bg-secondary">Score: 38.1</span>
+                                </div>
+                            </div>
+                    
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://kendratech.substack.com/p/chatgpt-gpt-5-prompt-guide-for-smbs" target="_blank">ChatGPT GPT-5 Prompt Guide for SMBs and Nonprofits</a>
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>Kendra Ramirez</span>
+                                    <span><i class="bi bi-journal me-1"></i>AI Simplified</span>
+                                    <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                                    <span class="badge bg-secondary">Score: 37.1</span>
+                                </div>
+                            </div>
+                    
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://sendfull.substack.com/p/ep-75-still-in-the-loop" target="_blank">ep. 75. Still in the Loop</a>
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>Stef Hutka</span>
+                                    <span><i class="bi bi-journal me-1"></i>Sendfull</span>
+                                    <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                                    <span class="badge bg-secondary">Score: 34.77</span>
+                                </div>
+                            </div>
+                    
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://angelastewartai.substack.com/p/the-ai-application-layer-just-ate" target="_blank">The AI Application Layer Just Ate Silicon Valley</a>
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>Angela Stewart</span>
+                                    <span><i class="bi bi-journal me-1"></i>Angela Stewart’s AI Substack</span>
+                                    <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                                    <span class="badge bg-secondary">Score: 30.33</span>
+                                </div>
+                            </div>
+                    
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://elizabethkwhitney.substack.com/p/this-week-in-hyperscaling-usa-vs" target="_blank">This Week in Hyperscaling: U.S.A. vs. China: A Tale of Two AI Action Plans</a>
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>Elizabeth K. Whitney</span>
+                                    <span><i class="bi bi-journal me-1"></i>Meguire Whitney</span>
+                                    <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                                    <span class="badge bg-secondary">Score: 28.98</span>
+                                </div>
+                            </div>
+                    
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://msukhareva.substack.com/p/microsoft-plays-dirty" target="_blank">Microsoft Plays Dirty</a> 🔒
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>Maria Sukhareva</span>
+                                    <span><i class="bi bi-journal me-1"></i>AI Realist</span>
+                                    <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                                    <span class="badge bg-secondary">Score: 26.75</span>
+                                </div>
+                            </div>
+                    
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://heyainews.substack.com/p/the-differences-between-usa-vs-chinas" target="_blank">The Differences Between USA vs. China's AI Action Plans</a>
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>Veronica Hylak</span>
+                                    <span><i class="bi bi-journal me-1"></i>Hey AI</span>
+                                    <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                                    <span class="badge bg-secondary">Score: 24.38</span>
+                                </div>
+                            </div>
+                    
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://annamills.substack.com/p/ongoing-sources-of-ai-professional" target="_blank">Ongoing Sources of AI Professional Development</a>
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>Anna Mills</span>
+                                    <span><i class="bi bi-journal me-1"></i>Anna Mills’ Substack</span>
+                                    <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                                    <span class="badge bg-secondary">Score: 20.62</span>
+                                </div>
+                            </div>
+                    
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://aibutintimate.substack.com/p/the-extended-mind-thesis-but-make" target="_blank">The Extended Mind Thesis, But Make It Intimate</a>
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>Kristina Bogovic</span>
+                                    <span><i class="bi bi-journal me-1"></i>AI, But Make It Intimate</span>
+                                    <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                                    <span class="badge bg-secondary">Score: 19.6</span>
+                                </div>
+                            </div>
+                    
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://aifutures.substack.com/p/what-lurks-inside-interactive-video" target="_blank">What Lurks Inside Interactive Video</a>
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>Kate Armstrong</span>
+                                    <span><i class="bi bi-journal me-1"></i>AI Futures for Art and Design</span>
+                                    <span><i class="bi bi-chat me-1"></i>1 comments</span>
+                                    <span class="badge bg-secondary">Score: 19.12</span>
+                                </div>
+                            </div>
+                    
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://kendravant.substack.com/p/which-humans-in-which-loop-are-we" target="_blank">Which humans in which loop are we on about?</a>
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>Kendra Vant</span>
+                                    <span><i class="bi bi-journal me-1"></i>Data Runs Deep</span>
+                                    <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                                    <span class="badge bg-secondary">Score: 18.35</span>
+                                </div>
+                            </div>
+                    
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://askalibrarian.substack.com/p/do-the-emojis-know-something-we-dont" target="_blank">Do the Emojis Know Something We Don’t?</a>
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>Ask A Librarian</span>
+                                    <span><i class="bi bi-journal me-1"></i>Ask A Librarian</span>
+                                    <span><i class="bi bi-chat me-1"></i>2 comments</span>
+                                    <span class="badge bg-secondary">Score: 16.35</span>
+                                </div>
+                            </div>
+                    
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://aiweekender.substack.com/p/how-to-detect-ai-failures-before" target="_blank">How to Catch AI Failures Before They Destroy Your Product</a>
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>Claudia Ng</span>
+                                    <span><i class="bi bi-journal me-1"></i>AI Weekender</span>
+                                    <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                                    <span class="badge bg-secondary">Score: 6.1</span>
+                                </div>
+                            </div>
+                    
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://kaystoner.substack.com/p/harrowings-podcast-kay-stoner" target="_blank">Harrowings Podcast - Kay Stoner</a> 🔒
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>KayStoner</span>
+                                    <span><i class="bi bi-journal me-1"></i>What Good Is AI?</span>
+                                    <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                                    <span class="badge bg-secondary">Score: 0.35</span>
+                                </div>
+                            </div>
+                    </div></div>
+                    <div class="category-section">
+                        <div class="category-title">
+                            <span>Finance & Investing</span>
+                            <span class="category-count">5 articles</span>
+                        </div>
+                        <div class="other-articles-grid">
+                
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://kenjiosone.substack.com/p/596" target="_blank">細行報告 —— 加密貨幣世界，香港一手爛牌點打 (二)</a> 🔒
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>Kenji San</span>
+                                    <span><i class="bi bi-journal me-1"></i>Kenji’s Substack</span>
+                                    <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                                    <span class="badge bg-secondary">Score: 0.25</span>
+                                </div>
+                            </div>
+                    
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://kenjiosone.substack.com/p/coreweave20" target="_blank">細行報告 —— 第三季必勝股CoreWeave為何暴跌20%</a> 🔒
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>Kenji San</span>
+                                    <span><i class="bi bi-journal me-1"></i>Kenji’s Substack</span>
+                                    <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                                    <span class="badge bg-secondary">Score: 0.12</span>
+                                </div>
+                            </div>
+                    
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://kenjiosone.substack.com/p/42e" target="_blank">細行報告 —— 美國上市量子電腦股完整清單 (二)</a> 🔒
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>Kenji San</span>
+                                    <span><i class="bi bi-journal me-1"></i>Kenji’s Substack</span>
+                                    <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                                    <span class="badge bg-secondary">Score: 0.12</span>
+                                </div>
+                            </div>
+                    
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://kenjiosone.substack.com/p/binance" target="_blank">細行報告 —— Binance趙長鵬正為特朗普操盤</a> 🔒
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>Kenji San</span>
+                                    <span><i class="bi bi-journal me-1"></i>Kenji’s Substack</span>
+                                    <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                                    <span class="badge bg-secondary">Score: 0.1</span>
+                                </div>
+                            </div>
+                    
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://kenjiosone.substack.com/p/binance-ca0" target="_blank">細行報告 —— Binance趙長鵬正為特朗普操盤 (二)</a> 🔒
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>Kenji San</span>
+                                    <span><i class="bi bi-journal me-1"></i>Kenji’s Substack</span>
+                                    <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                                    <span class="badge bg-secondary">Score: 0.05</span>
+                                </div>
+                            </div>
+                    </div></div>
+                    <div class="category-section">
+                        <div class="category-title">
+                            <span>Personal Development</span>
+                            <span class="category-count">4 articles</span>
+                        </div>
+                        <div class="other-articles-grid">
+                
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://thehistack.substack.com/p/the-authenticity-trap" target="_blank">Want to Be Authentic?</a>
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>Blair Glaser</span>
+                                    <span><i class="bi bi-journal me-1"></i>The Human Intelligence (HI) Stack</span>
+                                    <span><i class="bi bi-chat me-1"></i>4 comments</span>
+                                    <span class="badge bg-warning">Score: 43.25</span>
+                                </div>
+                            </div>
+                    
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://blog.jaclynkonzelmann.com/p/the-leap-to-second-order-thinking" target="_blank">The Leap to Second-Order Thinking</a>
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>Jaclyn Konzelmann</span>
+                                    <span><i class="bi bi-journal me-1"></i>Thursday Thoughts on AI</span>
+                                    <span><i class="bi bi-chat me-1"></i>2 comments</span>
+                                    <span class="badge bg-secondary">Score: 33.95</span>
+                                </div>
+                            </div>
+                    
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://thehumanplaybook.substack.com/p/the-fear-of-being-misunderstood" target="_blank">The fear of being misunderstood</a>
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>The Human Playbook</span>
+                                    <span><i class="bi bi-journal me-1"></i>The Human Playbook</span>
+                                    <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                                    <span class="badge bg-secondary">Score: 31.77</span>
+                                </div>
+                            </div>
+                    
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://aggressivelyhuman.substack.com/p/37-nervous-system-for-entrepreneurs" target="_blank">Is it a lion or a Slack notification? Nervous system management with Shulamit Ber Levtov</a>
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>Jessica Lackey</span>
+                                    <span><i class="bi bi-journal me-1"></i>Aggressively Human</span>
+                                    <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                                    <span class="badge bg-secondary">Score: 7.9</span>
+                                </div>
+                            </div>
+                    </div></div>
+                    <div class="category-section">
+                        <div class="category-title">
+                            <span>Writing & Content</span>
+                            <span class="category-count">2 articles</span>
+                        </div>
+                        <div class="other-articles-grid">
+                
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://drbrieannawilley.substack.com/p/neurospicy-voices-episode-1" target="_blank">🎙 Neurospicy Voices Ep. 1 — Zooming Out, Rabbit Holes & Beyond 🐇</a>
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>Brie-Anna Willey</span>
+                                    <span><i class="bi bi-journal me-1"></i>Business for Nerds</span>
+                                    <span><i class="bi bi-chat me-1"></i>5 comments</span>
+                                    <span class="badge bg-secondary">Score: 35.1</span>
+                                </div>
+                            </div>
+                    
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://fauziaburke.substack.com/p/ai-photos-for-authors-the-fabulously" target="_blank">AI Photos for Authors: The Fabulously Fake Author Life</a>
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>Fauzia Burke</span>
+                                    <span><i class="bi bi-journal me-1"></i>Fauzia Burke</span>
+                                    <span><i class="bi bi-chat me-1"></i>2 comments</span>
+                                    <span class="badge bg-secondary">Score: 21.02</span>
+                                </div>
+                            </div>
+                    </div></div>
+                    <div class="category-section">
+                        <div class="category-title">
+                            <span>Education & Learning</span>
+                            <span class="category-count">2 articles</span>
+                        </div>
+                        <div class="other-articles-grid">
+                
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://askalibrarian.substack.com/p/weird-science" target="_blank">Weird Science</a>
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>Ask A Librarian</span>
+                                    <span><i class="bi bi-journal me-1"></i>Ask A Librarian</span>
+                                    <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                                    <span class="badge bg-secondary">Score: 32.67</span>
+                                </div>
+                            </div>
+                    
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://aischoollibrarian.substack.com/p/level-up-your-library-displays-how" target="_blank">Level Up Your Library Displays: How I Built a Year’s Worth of Slides in One Afternoon</a>
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>The Ai School Librarian</span>
+                                    <span><i class="bi bi-journal me-1"></i>The AI School Librarians Newsletter</span>
+                                    <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                                    <span class="badge bg-secondary">Score: 24.85</span>
+                                </div>
+                            </div>
+                    </div></div>
+                    <div class="category-section">
+                        <div class="category-title">
+                            <span>Politics & Policy</span>
+                            <span class="category-count">2 articles</span>
+                        </div>
+                        <div class="other-articles-grid">
+                
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://iwetterapoport.substack.com/p/when-transparency-deceives" target="_blank">When Transparency Deceives</a>
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>Iwette Rapoport</span>
+                                    <span><i class="bi bi-journal me-1"></i>Iwette Rapoport</span>
+                                    <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                                    <span class="badge bg-secondary">Score: 15.5</span>
+                                </div>
+                            </div>
+                    
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://kenjiosone.substack.com/p/7ca" target="_blank">地緣政治 —— 今天的美國，腐敗正在合法化</a> 🔒
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>Kenji San</span>
+                                    <span><i class="bi bi-journal me-1"></i>Kenji’s Substack</span>
+                                    <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                                    <span class="badge bg-secondary">Score: 0.2</span>
+                                </div>
+                            </div>
+                    </div></div>
+                    <div class="category-section">
+                        <div class="category-title">
+                            <span>Arts & Culture</span>
+                            <span class="category-count">2 articles</span>
+                        </div>
+                        <div class="other-articles-grid">
+                
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://theeconomicsofhappiness.substack.com/p/the-age-of-medocrity-is-dead" target="_blank">The Age of Medocrity is dead.</a>
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>theronnicles</span>
+                                    <span><i class="bi bi-journal me-1"></i>The Economics of Happiness</span>
+                                    <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                                    <span class="badge bg-secondary">Score: 7.55</span>
+                                </div>
+                            </div>
+                    
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://kenjiosone.substack.com/p/bc4" target="_blank">日本投資 ---- 日本人返鄉之約盂蘭盆節</a> 🔒
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>Kenji San</span>
+                                    <span><i class="bi bi-journal me-1"></i>Kenji’s Substack</span>
+                                    <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                                    <span class="badge bg-secondary">Score: 0.03</span>
+                                </div>
+                            </div>
+                    </div></div>
+                    <div class="category-section">
+                        <div class="category-title">
+                            <span>Startup Ecosystem</span>
+                            <span class="category-count">1 article</span>
+                        </div>
+                        <div class="other-articles-grid">
+                
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://www.thescenarionist.com/p/secrets-to-invest-in-deep-tech-startup-successfully" target="_blank">Strategic Investment Secrets Behind Winning Deep Tech</a>
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>Unknown</span>
+                                    <span><i class="bi bi-journal me-1"></i>The Scenarionist - Deep Tech Startups & Venture Capital</span>
+                                    <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                                    <span class="badge bg-secondary">Score: 9.72</span>
+                                </div>
+                            </div>
+                    </div></div>
+                    <div class="category-section">
+                        <div class="category-title">
+                            <span>Marketing & Growth</span>
+                            <span class="category-count">1 article</span>
+                        </div>
+                        <div class="other-articles-grid">
+                
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://liveyourcreativelife.substack.com/p/is-this-hidden-conversion-killer" target="_blank">Your Smartest Content Might Be Doing This One Thing Wrong</a>
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>Unknown</span>
+                                    <span><i class="bi bi-journal me-1"></i>The Conversion Engine</span>
+                                    <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                                    <span class="badge bg-secondary">Score: 9.0</span>
+                                </div>
+                            </div>
+                    </div></div>
+                    <div class="category-section">
+                        <div class="category-title">
+                            <span>Tech Industry News</span>
+                            <span class="category-count">1 article</span>
+                        </div>
+                        <div class="other-articles-grid">
+                
+                            <div class="other-article-item">
+                                <div class="other-article-title">
+                                    <a href="https://yovanarosales.substack.com/p/ya-llegowelcome-to-the-new-ailatina" target="_blank">Ya llegó—Welcome to the new Ai.Latina 🎉</a>
+                                </div>
+                                <div class="other-article-meta">
+                                    <span><i class="bi bi-person me-1"></i>Unknown</span>
+                                    <span><i class="bi bi-journal me-1"></i>Yovana’s AI, Entrepreneur and Self -Care Journey</span>
+                                    <span><i class="bi bi-chat me-1"></i>0 comments</span>
+                                    <span class="badge bg-secondary">Score: 3.6</span>
+                                </div>
+                            </div>
+                    </div></div></div>
+                <div class="footer">
+                    <h5><i class="bi bi-robot me-2"></i>StackDigest</h5>
+                    <p class="mb-2">Automatically curated newsletter digest</p>
+                    <small class="text-muted">
+                        Generated with Claude AI • Quality scoring based on content length and engagement
+                        <br>
+                        Articles sourced from 38 newsletters
+                    </small>
+                </div>
+            </div>
+        </body>
+        </html>
+        
