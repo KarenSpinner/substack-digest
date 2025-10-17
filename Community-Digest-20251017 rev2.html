@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StackDigest - Comprehensive - October 17, 2025</title>
+    <style>
+        
+        /* Base Typography & Layout */
+        body {
+            font-family: Georgia, 'Times New Roman', serif;  /* More readable, Substack-like */
+            font-size: 18px;  /* Larger for better readability */
+            line-height: 1.7;
+            color: #1a1a1a;
+            background: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 700px;  /* Optimal reading width */
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Headers - Clean, no gradients */
+        .digest-header {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .digest-header h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        .digest-header .date {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .digest-header .stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* Article Sections */
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 40px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #1a1a1a;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        /* Article Cards - Clean, no colored borders */
+        .article {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .article:last-child {
+            border-bottom: none;
+        }
+        
+        .article-title {
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 8px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        .article-title a {
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+        
+        .article-title a:hover {
+            text-decoration: underline;
+        }
+        
+        .article-meta {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .article-meta span {
+            white-space: nowrap;
+        }
+        
+        /* Summary Styles */
+        .article-summary {
+            font-size: 17px;
+            line-height: 1.7;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+        
+        .recap-sentence {
+            margin-bottom: 15px;
+            font-weight: 500;
+            font-style: italic;
+        }
+        
+        /* FIXED Bullet Points - Proper indentation, no wrap */
+        .bullet-list {
+            margin: 20px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+        
+        .bullet-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+        
+        .bullet-symbol {
+            color: #666;
+            font-weight: bold;
+            margin-right: 10px;
+            flex-shrink: 0;
+            margin-top: 2px; /* Align with first line of text */
+        }
+        
+        .bullet-content {
+            flex: 1;
+        }
+        
+        /* Bold text in bullets for scanability */
+        .bullet-item strong,
+        .bullet-item b {
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+        
+        /* Category/Topic Badges - Subtle, modern */
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            font-size: 12px;
+            font-weight: 600;
+            background: #f0f0f0;
+            color: #666;
+            border-radius: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge.badge-category {
+            background: #e8f4fd;
+            color: #0066cc;
+        }
+        
+        .badge.badge-score {
+            background: #f0f8ff;
+            color: #333;
+        }
+        
+        .metric-small {
+            font-size: 12px;
+            font-weight: 600;
+            color: #666;
+        }
+        
+        /* Compact Article List (for non-featured) */
+        .article-compact {
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .article-compact:last-child {
+            border-bottom: none;
+        }
+        
+        .article-compact-title {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 5px;
+        }
+        
+        .article-compact-title a {
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+        
+        .article-compact-title a:hover {
+            text-decoration: underline;
+        }
+        
+        .article-compact-meta {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* Footer */
+        .digest-footer {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* Substack Copy-Paste Optimizations */
+        @media print, screen and (max-width: 800px) {
+            .container {
+                max-width: 100%;
+                padding: 15px;
+            }
+
+            .digest-header h1 {
+                font-size: 24px;
+            }
+
+            .article-title {
+                font-size: 20px;
+            }
+
+            .article-summary {
+                font-size: 16px;
+            }
+        }
+        
+        /* Remove Bootstrap conflicts for clean paste */
+        h1, h2, h3, h4, h5, h6 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+        
+        p {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="container" data-article-count="29">
+        
+        <div class="digest-header">
+            <h1>Real-Time Newsletter Digest</h1>
+            <div class="date">Friday, October 17, 2025</div>
+            <div class="stats" style="margin-top: 8px; color: #666;">Last 24 hours • Time-normalized engagement • Includes paywalled content</div>
+            <div class="stats" style="margin-top: 8px;">10 Featured, 2 Wild Cards • 29 Total Articles • Comprehensive</div>
+            
+        </div>
+    
+<div style="font-size: 20px; font-weight: bold; margin: 20px 0 15px 0; color: #000;">Top Articles</div>
+
+            <div class="article" style="margin-bottom: 25px; padding: 0;">
+                <div style="display: flex; align-items: start;">
+                    <div style="font-size: 26px; font-weight: bold; color: #000; margin-right: 12px; line-height: 1; min-width: 35px; text-align: center;">1</div>
+                    <div style="flex: 1;">
+                        <h3 style="margin: 0 0 8px 0;">
+                            <a href="https://wonderingaboutai.substack.com/p/5-under-500-newsletter-spotlight" target="_blank" style="font-size: 18px; font-weight: 600; color: #000; text-decoration: none;">
+                                5 under 500 newsletter spotlight: Business x technology edition
+                            </a>
+                            
+                        </h3>
+                        <div class="article-meta" style="font-size: 13px; color: #555; margin-bottom: 4px;">
+                            Karen Spinner • Wondering About AI • Oct 17
+                        </div>
+                        <div class="article-metrics" style="font-size: 13px; color: #555; margin-bottom: 10px; line-height: 1.6;">
+                            Score: 0.752<br>
+            1,532 words<br>
+            17 comments<br>
+            41 likes
+                        </div>
+                        <div class="article-summary" style="font-size: 15px; line-height: 1.5; color: #000;">
+                            <p style="margin: 8px 0 12px 0;">This article showcases 5 business-technology newsletters with under 500 subscribers, each offering unique perspectives on how technology intersects with business strategy, leadership, and innovation. The featured newsletters demonstrate practical approaches to automation, AI integration, startup culture, and tech leadership through real-world examples and actionable insights.</p><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Automato by Jose Antonio Morales:</strong> Explores how AI forces humans to become more precise about their unique qualities, making domain expertise and intentional thinking more valuable than raw information</div></div><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Cache and Cash by Raghav Mehra and Ashwin Francis:</strong> Features practical no-code solutions like building custom Substack analytics dashboards using AI-powered tools and web scraping techniques</div></div><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>HipsterTech:</strong> Critiques how startups have become overhyped status symbols similar to cryptocurrency, arguing entrepreneurs should choose business models based on their specific needs rather than following trends</div></div><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>The Leadership Lens by Shamim Rajani:</strong> Emphasizes that effective leadership requires calling out unspoken tensions in team settings, then letting go of conflicts to build psychological safety and creativity</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+
+            <div class="article" style="margin-bottom: 25px; padding: 0;">
+                <div style="display: flex; align-items: start;">
+                    <div style="font-size: 26px; font-weight: bold; color: #000; margin-right: 12px; line-height: 1; min-width: 35px; text-align: center;">2</div>
+                    <div style="flex: 1;">
+                        <h3 style="margin: 0 0 8px 0;">
+                            <a href="https://leadershipinchange10.substack.com/p/how-to-build-your-ai-decision-partner1" target="_blank" style="font-size: 18px; font-weight: 600; color: #000; text-decoration: none;">
+                                How to Build Your AI Decision Partner That Fights Decision Fatigue (Part 1)
+                            </a>
+                            
+                        </h3>
+                        <div class="article-meta" style="font-size: 13px; color: #555; margin-bottom: 4px;">
+                            Jakub Slys 🤖 • Leadership in Change • Oct 16
+                        </div>
+                        <div class="article-metrics" style="font-size: 13px; color: #555; margin-bottom: 10px; line-height: 1.6;">
+                            Score: 0.728<br>
+            1,765 words<br>
+            13 comments<br>
+            22 likes
+                        </div>
+                        <div class="article-summary" style="font-size: 15px; line-height: 1.5; color: #000;">
+                            <p style="margin: 8px 0 12px 0;">Decision fatigue significantly impairs leadership judgment, with 85% of business leaders experiencing decision-related regret and 60% of executives showing impaired judgment after prolonged decision-making sessions. The article proposes using AI as a "thinking partner" rather than a replacement - an assistant that can structure decision-making frameworks without the mental exhaustion of doing it manually.</p><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Decision fatigue impact:</strong> Like Barack Obama limiting outfit choices to preserve mental energy, leaders experience deteriorating decision quality throughout the day, often defaulting to status quo or delaying choices entirely</div></div><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Structured frameworks paradox:</strong> While proven methods like pros/cons lists and risk assessments improve decision quality, they're too mentally taxing to use consistently when fatigue sets in</div></div><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>AI thinking partner concept:</strong> Modern AI tools can handle the "grunt work" of organizing thoughts and structuring analysis while preserving human judgment for the final decision</div></div><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Decision Assistant Agent:</strong> A custom tool built with n8n automation platform that allows leaders to input dilemmas via messaging and receive structured decision analyses within minutes</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+
+            <div class="article" style="margin-bottom: 25px; padding: 0;">
+                <div style="display: flex; align-items: start;">
+                    <div style="font-size: 26px; font-weight: bold; color: #000; margin-right: 12px; line-height: 1; min-width: 35px; text-align: center;">3</div>
+                    <div style="flex: 1;">
+                        <h3 style="margin: 0 0 8px 0;">
+                            <a href="https://www.the-founders-corner.com/p/guy-kawasakis-10-slide-pitch-deck" target="_blank" style="font-size: 18px; font-weight: 600; color: #000; text-decoration: none;">
+                                🚀 Guy Kawasaki’s 10-Slide Pitch Deck Formula: How to Hook Investors and Nail Your Next Raise
+                            </a>
+                            
+                        </h3>
+                        <div class="article-meta" style="font-size: 13px; color: #555; margin-bottom: 4px;">
+                            Chris Tottman • The Founders Corner® • Oct 16
+                        </div>
+                        <div class="article-metrics" style="font-size: 13px; color: #555; margin-bottom: 10px; line-height: 1.6;">
+                            Score: 0.680<br>
+            1,280 words<br>
+            6 comments<br>
+            34 likes
+                        </div>
+                        <div class="article-summary" style="font-size: 15px; line-height: 1.5; color: #000;">
+                            <p style="margin: 8px 0 12px 0;">Guy Kawasaki's 10-slide pitch deck formula provides a time-tested framework that forces founders to create clear, focused presentations by addressing the most critical aspects of their business in a structured way. The framework emphasizes storytelling over information dumping, helping founders avoid common pitfalls like being too long, vague, or generic. This approach has remained relevant for over a decade because it focuses on the core questions investors need answered: whether the problem is real, the solution credible, the team capable, and the business viable.</p><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Problem Definition:</strong> Frame problems in terms of stakes and specific pain points with concrete data, avoiding broad generalizations like "HR is broken"</div></div><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Solution Clarity:</strong> Present your product in plain English with simple explanations, avoiding jargon and complex technical descriptions that kill momentum</div></div><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Secret Sauce:</strong> Dedicate a slide to your unique competitive advantage, whether it's proprietary technology, unique data, patents, or founder expertise</div></div><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Financial Specifics:</strong> Focus on key metrics like pricing strategy, unit economics (CAC, LTV), and realistic projections with clear assumptions rather than complicated hockey stick charts</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+
+            <div class="article" style="margin-bottom: 25px; padding: 0;">
+                <div style="display: flex; align-items: start;">
+                    <div style="font-size: 26px; font-weight: bold; color: #000; margin-right: 12px; line-height: 1; min-width: 35px; text-align: center;">4</div>
+                    <div style="flex: 1;">
+                        <h3 style="margin: 0 0 8px 0;">
+                            <a href="https://leadershipinchange10.substack.com/p/if-you-create-presentations-or-social-89f" target="_blank" style="font-size: 18px; font-weight: 600; color: #000; text-decoration: none;">
+                                Gamma AI Review: 5 Ways Leaders Multiply Content in Minutes
+                            </a>
+                            
+                        </h3>
+                        <div class="article-meta" style="font-size: 13px; color: #555; margin-bottom: 4px;">
+                            Joel Salinas • Leadership in Change • Oct 17
+                        </div>
+                        <div class="article-metrics" style="font-size: 13px; color: #555; margin-bottom: 10px; line-height: 1.6;">
+                            Score: 0.639<br>
+            1,556 words<br>
+            12 comments<br>
+            15 likes
+                        </div>
+                        <div class="article-summary" style="font-size: 15px; line-height: 1.5; color: #000;">
+                            <p style="margin: 8px 0 12px 0;">Gamma AI is a content creation tool that allows leaders to transform documents into professional presentations, training materials, websites, and social media content in minutes rather than hours. The author developed "The Leader's Content Multiplication Method" after discovering that one piece of core content can be repurposed into 5-10 different professional formats while maintaining brand consistency. This approach enables mission-driven leaders to reclaim strategic thinking time by automating repetitive content creation and formatting tasks.</p><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Presentation Creation:</strong> Transform any document or notes into professional presentations in 15 minutes instead of 3 hours, with automatic slide formatting and design</div></div><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Training Materials:</strong> Generate comprehensive educational content with clear learning objectives and progressive information flow using organized insights from multiple sources</div></div><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Social Media Scaling:</strong> Convert one piece of core content into multiple social assets (LinkedIn carousels, Twitter threads, professional graphics) while maintaining consistent voice and branding</div></div><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Website Building:</strong> Create publish-ready professional websites from plain language descriptions without coding or technical dependencies, suitable for campaigns, programs, or resource hubs</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+
+            <div class="article" style="margin-bottom: 25px; padding: 0;">
+                <div style="display: flex; align-items: start;">
+                    <div style="font-size: 26px; font-weight: bold; color: #000; margin-right: 12px; line-height: 1; min-width: 35px; text-align: center;">5</div>
+                    <div style="flex: 1;">
+                        <h3 style="margin: 0 0 8px 0;">
+                            <a href="https://buildtothrive.co/p/4-ways-notebooklm-will-supercharge" target="_blank" style="font-size: 18px; font-weight: 600; color: #000; text-decoration: none;">
+                                4 Ways NotebookLM Will Supercharge Your Research
+                            </a>
+                            
+                        </h3>
+                        <div class="article-meta" style="font-size: 13px; color: #555; margin-bottom: 4px;">
+                            Juan Salas-Romer • Build to Thrive • Oct 16
+                        </div>
+                        <div class="article-metrics" style="font-size: 13px; color: #555; margin-bottom: 10px; line-height: 1.6;">
+                            Score: 0.593<br>
+            1,837 words<br>
+            1 comments<br>
+            12 likes
+                        </div>
+                        <div class="article-summary" style="font-size: 15px; line-height: 1.5; color: #000;">
+                            <p style="margin: 8px 0 12px 0;">The article introduces NotebookLM as a powerful tool for transforming content research from guesswork into strategic intelligence gathering, particularly for mission-driven leaders who want their expertise to reach the right audience. The author developed "The Leader's Content Intelligence System" after discovering that great insights without strategic positioning only impact dozens of people, while strategically positioned insights can reach thousands.</p><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Source Control:</strong> NotebookLM allows you to upload trusted sources first (academic research, industry reports, respected thought leaders) to ensure research quality isn't polluted by unreliable information</div></div><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Mind Mapping for Gap Analysis:</strong> The mind map feature reveals how topics connect and identifies content opportunities by showing where expertise intersects with search demand and uncovering gaps competitors miss</div></div><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Competitor Intelligence:</strong> Instead of copying what others do, analyze what they're missing by scanning competitor content to find gaps in their customer journey coverage and deeper leadership challenges</div></div><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>YouTube Content Analysis:</strong> Leveraging YouTube as the second-largest search engine to discover which topics work better as visual vs. written content and identify trending topics before saturation</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+
+            <div class="article" style="margin-bottom: 25px; padding: 0;">
+                <div style="display: flex; align-items: start;">
+                    <div style="font-size: 26px; font-weight: bold; color: #000; margin-right: 12px; line-height: 1; min-width: 35px; text-align: center;">6</div>
+                    <div style="flex: 1;">
+                        <h3 style="margin: 0 0 8px 0;">
+                            <a href="https://www.globaldatacenterhub.com/p/the-3-ways-data-centers-make-money" target="_blank" style="font-size: 18px; font-weight: 600; color: #000; text-decoration: none;">
+                                The 3 Ways Data Centers Make Money (And What Each Means for Your Returns)
+                            </a>
+                            
+                        </h3>
+                        <div class="article-meta" style="font-size: 13px; color: #555; margin-bottom: 4px;">
+                            Global Data Center Hub • Global Data Center Hub • Oct 17
+                        </div>
+                        <div class="article-metrics" style="font-size: 13px; color: #555; margin-bottom: 10px; line-height: 1.6;">
+                            Score: 0.581<br>
+            1,605 words<br>
+            3 comments<br>
+            14 likes
+                        </div>
+                        <div class="article-summary" style="font-size: 15px; line-height: 1.5; color: #000;">
+                            <p style="margin: 8px 0 12px 0;">Data centers generate revenue through three distinct models that cater to different customer segments and offer varying risk-return profiles for investors. Each model—retail colocation, wholesale colocation, and hyperscale leasing—has unique pricing structures, contract terms, and operational complexities that directly impact profitability and investment returns.</p><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Retail Colocation:</strong> Customers rent individual cabinets or small suites with pricing per rack/kilowatt, offering highest margins but requiring intensive operations due to diverse customer needs and shorter lease terms</div></div><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Wholesale Colocation:</strong> Clients lease entire suites of 1-20 megawatts on 5-15 year contracts, providing predictable cash flow with lower per-unit margins but reduced operational complexity and customer churn</div></div><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Hyperscale Leasing:</strong> Long-term agreements (10-20+ years) with tech giants like Microsoft and Google for massive facilities exceeding 100 MW, offering the lowest margins but highest predictability and scale</div></div><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>AI-Driven Evolution:</strong> Artificial intelligence workloads are creating hybrid models where operators sell compute capacity directly (GPU-as-a-service), blending traditional colocation with cloud economics and performance-based pricing</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+
+            <div class="article" style="margin-bottom: 25px; padding: 0;">
+                <div style="display: flex; align-items: start;">
+                    <div style="font-size: 26px; font-weight: bold; color: #000; margin-right: 12px; line-height: 1; min-width: 35px; text-align: center;">7</div>
+                    <div style="flex: 1;">
+                        <h3 style="margin: 0 0 8px 0;">
+                            <a href="https://www.globaldatacenterhub.com/p/why-energy-is-the-advantage-in-the" target="_blank" style="font-size: 18px; font-weight: 600; color: #000; text-decoration: none;">
+                                Why Energy Is the Advantage in the AI Race?
+                            </a>
+                            
+                        </h3>
+                        <div class="article-meta" style="font-size: 13px; color: #555; margin-bottom: 4px;">
+                            Global Data Center Hub • Global Data Center Hub • Oct 16
+                        </div>
+                        <div class="article-metrics" style="font-size: 13px; color: #555; margin-bottom: 10px; line-height: 1.6;">
+                            Score: 0.580<br>
+            1,321 words<br>
+            0 comments<br>
+            24 likes
+                        </div>
+                        <div class="article-summary" style="font-size: 15px; line-height: 1.5; color: #000;">
+                            <p style="margin: 8px 0 12px 0;">Energy infrastructure has become the decisive competitive advantage in AI development, with companies now bidding for "energized megawatts" and power delivery capacity as aggressively as they compete for GPUs and algorithms. The most successful AI labs are transforming into vertically integrated utilities, where control over electricity, cooling systems, and fiber optic routes determines who can train models faster and ship products sooner.</p><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Power as the New Moat:</strong> AI companies are securing interconnection agreements, energized substation capacity, and high-density cooling zones, with data centers projected to consume 945 terawatt-hours annually by 2030 - double today's usage.</div></div><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Interconnection Queue Crisis:</strong> In Texas alone, large-load power requests jumped from 63 GW to 156 GW between late 2024 and mid-2025, with approvals lagging years behind demand and creating critical bottlenecks for AI training schedules.</div></div><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Cooling and Water Infrastructure:</strong> Hyperscale AI campuses require up to 5 million gallons of water daily for cooling systems, making "wet-site optionality" near reclaimed water sources a valuable asset for faster permitting and ESG compliance.</div></div><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Network Route Dependency:</strong> The September 2025 Red Sea cable cuts demonstrated that physical fiber route diversity is as critical as GPU count, with latency spikes affecting Azure</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+
+            <div class="article" style="margin-bottom: 25px; padding: 0;">
+                <div style="display: flex; align-items: start;">
+                    <div style="font-size: 26px; font-weight: bold; color: #000; margin-right: 12px; line-height: 1; min-width: 35px; text-align: center;">8</div>
+                    <div style="flex: 1;">
+                        <h3 style="margin: 0 0 8px 0;">
+                            <a href="https://marinatalamanou.substack.com/p/weekly-techbio-news-df5" target="_blank" style="font-size: 18px; font-weight: 600; color: #000; text-decoration: none;">
+                                Weekly TechBio News ✴️
+                            </a>
+                            
+                        </h3>
+                        <div class="article-meta" style="font-size: 13px; color: #555; margin-bottom: 4px;">
+                            Marina T Alamanou • MetaphysicalCells • Oct 17
+                        </div>
+                        <div class="article-metrics" style="font-size: 13px; color: #555; margin-bottom: 10px; line-height: 1.6;">
+                            Score: 0.544<br>
+            2,720 words<br>
+            0 comments<br>
+            6 likes
+                        </div>
+                        <div class="article-summary" style="font-size: 15px; line-height: 1.5; color: #000;">
+                            <p style="margin: 8px 0 12px 0;">ThinkBio.Ai®, Inc</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+
+            <div class="article" style="margin-bottom: 25px; padding: 0;">
+                <div style="display: flex; align-items: start;">
+                    <div style="font-size: 26px; font-weight: bold; color: #000; margin-right: 12px; line-height: 1; min-width: 35px; text-align: center;">9</div>
+                    <div style="flex: 1;">
+                        <h3 style="margin: 0 0 8px 0;">
+                            <a href="https://marinatalamanou.substack.com/p/weekly-techbio-news-9a1" target="_blank" style="font-size: 18px; font-weight: 600; color: #000; text-decoration: none;">
+                                Weekly TechBio News 🧝
+                            </a>
+                            
+                        </h3>
+                        <div class="article-meta" style="font-size: 13px; color: #555; margin-bottom: 4px;">
+                            Marina T Alamanou • MetaphysicalCells • Oct 16
+                        </div>
+                        <div class="article-metrics" style="font-size: 13px; color: #555; margin-bottom: 10px; line-height: 1.6;">
+                            Score: 0.526<br>
+            4,572 words<br>
+            0 comments<br>
+            2 likes
+                        </div>
+                        <div class="article-summary" style="font-size: 15px; line-height: 1.5; color: #000;">
+                            <p style="margin: 8px 0 12px 0;">Proscia is expanding its artificial intelligence capabilities in digital pathology by developing biomarker detection specifically for skin tissue analysis. This represents a strategic move to broaden the company's AI-powered diagnostic tools beyond its current offerings.</p><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Company Focus:</strong> Proscia is enhancing its pathology AI platform capabilities</div></div><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>New Technology:</strong> Development of biomarker detection systems for dermatological applications</div></div><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Market Expansion:</strong> Moving into skin tissue analysis represents broadening of diagnostic scope</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+
+            <div class="article" style="margin-bottom: 25px; padding: 0;">
+                <div style="display: flex; align-items: start;">
+                    <div style="font-size: 26px; font-weight: bold; color: #000; margin-right: 12px; line-height: 1; min-width: 35px; text-align: center;">10</div>
+                    <div style="flex: 1;">
+                        <h3 style="margin: 0 0 8px 0;">
+                            <a href="https://theaisoloist.substack.com/p/two-groups-are-forming-in-ai-which" target="_blank" style="font-size: 18px; font-weight: 600; color: #000; text-decoration: none;">
+                                Two Groups Are Forming in AI. Which Side Are You On?
+                            </a>
+                            
+                        </h3>
+                        <div class="article-meta" style="font-size: 13px; color: #555; margin-bottom: 4px;">
+                            Claudia Faith • The AI Soloist • Oct 16
+                        </div>
+                        <div class="article-metrics" style="font-size: 13px; color: #555; margin-bottom: 10px; line-height: 1.6;">
+                            Score: 0.506<br>
+            1,038 words<br>
+            0 comments<br>
+            20 likes
+                        </div>
+                        <div class="article-summary" style="font-size: 15px; line-height: 1.5; color: #000;">
+                            <p style="margin: 8px 0 12px 0;">The AI landscape is splitting into two distinct camps, creating a critical decision point for individuals and organizations to choose their alignment. This division represents a pivotal moment where taking action is essential to avoid being left behind in the rapidly evolving AI space.</p><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Binary AI Alignment:</strong> The artificial intelligence field is consolidating into two opposing groups or philosophical camps</div></div><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Critical Decision Point:</strong> Individuals and organizations must actively choose which side to align with rather than remaining neutral</div></div><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Urgency of Action:</strong> There is a time-sensitive need to make this choice to avoid falling behind in AI development or adoption</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+
+            <div class="article" style="margin-bottom: 25px; padding: 0;">
+                <div style="display: flex; align-items: start;">
+                    <div style="font-size: 26px; font-weight: bold; color: #000; margin-right: 12px; line-height: 1; min-width: 35px; text-align: center;">11</div>
+                    <div style="flex: 1;">
+                        <h3 style="margin: 0 0 8px 0;">
+                            <a href="https://alexrandallkittredge.substack.com/p/a-dispatch-from-the-edge-of-understanding" target="_blank" style="font-size: 18px; font-weight: 600; color: #000; text-decoration: none;">
+                                A Dispatch from the Edge of Understanding 
+                            </a>
+                             <span style="font-size: 12px; color: #666; font-weight: normal;">[Wild Card]</span>
+                        </h3>
+                        <div class="article-meta" style="font-size: 13px; color: #555; margin-bottom: 4px;">
+                            Alex Randall Kittredge • Alex Randall Kittredge • Oct 17
+                        </div>
+                        <div class="article-metrics" style="font-size: 13px; color: #555; margin-bottom: 10px; line-height: 1.6;">
+                            Score: 0.332<br>
+            514 words<br>
+            1 comments<br>
+            8 likes
+                        </div>
+                        <div class="article-summary" style="font-size: 15px; line-height: 1.5; color: #000;">
+                            <p style="margin: 8px 0 12px 0;">The article explores a theatrical experience where incomprehension becomes the point, describing a avant-garde musical-play called "Oratorio for the Living Things" that blends Latin liturgy with modern elements to create something intentionally disorienting. The author argues that in our information-saturated age, art's value may lie not in being understood but in making us feel alive through confusion and emotional resonance.</p><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Production Style:</strong> One-third performed in Latin with the rest described as "between psychosis and poetry," creating a cathedral-like atmosphere mixed with modern static</div></div><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Audience Experience:</strong> Demands "complete and total surrender" rather than traditional applause, designed to disorient rather than entertain</div></div><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Sacred vs. Banal:</strong> Juxtaposes ancient liturgical phrases like "In principio erat verbum" with modern fragments like "I remember the static on the radio"</div></div><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Art's Purpose:</strong> Positioned as a "poignant séance conducted by poets" that prioritizes emotional impact over intellectual comprehension in 2025's cultural landscape</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+
+            <div class="article" style="margin-bottom: 25px; padding: 0;">
+                <div style="display: flex; align-items: start;">
+                    <div style="font-size: 26px; font-weight: bold; color: #000; margin-right: 12px; line-height: 1; min-width: 35px; text-align: center;">12</div>
+                    <div style="flex: 1;">
+                        <h3 style="margin: 0 0 8px 0;">
+                            <a href="https://thestrategystack.substack.com/p/platforms-aggregators-and-the-power" target="_blank" style="font-size: 18px; font-weight: 600; color: #000; text-decoration: none;">
+                                Platforms, Aggregators & the Power Laws of Distribution
+                            </a>
+                             <span style="font-size: 12px; color: #666; font-weight: normal;">[Wild Card]</span>
+                        </h3>
+                        <div class="article-meta" style="font-size: 13px; color: #555; margin-bottom: 4px;">
+                            Alex Pawlowski • The Strategy Stack • Oct 17
+                        </div>
+                        <div class="article-metrics" style="font-size: 13px; color: #555; margin-bottom: 10px; line-height: 1.6;">
+                            Score: 0.249<br>
+            856 words<br>
+            0 comments<br>
+            2 likes
+                        </div>
+                        <div class="article-summary" style="font-size: 15px; line-height: 1.5; color: #000;">
+                            <p style="margin: 8px 0 12px 0;">The traditional business model of owning supply has been replaced by a new paradigm where success comes from managing and directing consumer demand. In 2025, the most powerful companies are those that can effectively orchestrate customer intent rather than control production or inventory. This shift represents a fundamental change in how value is created and captured in the digital economy.</p><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Intent Orchestration:</strong> Companies now focus on managing and directing what customers want rather than owning what they sell</div></div><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Technology-Driven Routing:</strong> Modern aggregators use models, APIs, and data feedback loops as their primary tools for connecting demand with supply</div></div><div style="margin: 4px 0; margin-left: 0; display: flex;"><span style="margin-right: 8px;">•</span><div><strong>Power Law Distribution:</strong> The competitive advantage has shifted from supply ownership to sophisticated demand management systems</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+<div style="font-size: 20px; font-weight: bold; margin: 25px 0 15px 0; color: #000;">Additional Reading</div>
+<h3 style="font-size: 18px; font-weight: bold; margin: 20px 0 10px 0; color: #000;">Arts & Culture (1 articles)</h3>
+<ul style="margin: 0; padding: 0;">
+
+            <li style="margin: 12px 0; padding: 0; list-style: none;">
+                <div>
+                    <a href="https://storiesbyzahra.substack.com/p/the-future-is-not-bright-for-any" target="_blank" style="color: #000; font-weight: 500; text-decoration: none; font-size: 15px;">
+                        The Future Is Not Bright For Any Of Us
+                    </a>
+                </div>
+                <div style="font-size: 12px; color: #666; margin-top: 3px;">
+                    Zəhra Üzeyirli • Cattitude • Oct 16<br>
+                    Score: 0.420 • 799 words • 5 comments • 8 likes
+                </div>
+            </li>
+        
+</ul>
+<h3 style="font-size: 18px; font-weight: bold; margin: 20px 0 10px 0; color: #000;">Business & Strategy (1 articles)</h3>
+<ul style="margin: 0; padding: 0;">
+
+            <li style="margin: 12px 0; padding: 0; list-style: none;">
+                <div>
+                    <a href="https://melaniegoodmanlinkedinconsultant.substack.com/p/mastermind-with-kristina-god-start" target="_blank" style="color: #000; font-weight: 500; text-decoration: none; font-size: 15px;">
+                        Mastermind with Kristina God - start, grow, monetise and market your newsletters
+                    </a>
+                </div>
+                <div style="font-size: 12px; color: #666; margin-top: 3px;">
+                    Melanie Goodman • The Link Tank™️ • Oct 16<br>
+                    Score: 0.321 • 247 words • 3 comments • 14 likes
+                </div>
+            </li>
+        
+</ul>
+<h3 style="font-size: 18px; font-weight: bold; margin: 20px 0 10px 0; color: #000;">Career & Leadership (3 articles)</h3>
+<ul style="margin: 0; padding: 0;">
+
+            <li style="margin: 12px 0; padding: 0; list-style: none;">
+                <div>
+                    <a href="https://diamantinoalmeida.substack.com/p/5-how-teams-can-take-advantage-of" target="_blank" style="color: #000; font-weight: 500; text-decoration: none; font-size: 15px;">
+                        #5 - How teams can take advantage of AI agents
+                    </a>
+                </div>
+                <div style="font-size: 12px; color: #666; margin-top: 3px;">
+                    Diamantino Almeida • Leadership as a verb • Oct 16<br>
+                    Score: 0.423 • 1,541 words • 0 comments • 5 likes
+                </div>
+            </li>
+        
+
+            <li style="margin: 12px 0; padding: 0; list-style: none;">
+                <div>
+                    <a href="https://projectmanagementcompass.substack.com/p/why-most-project-documentation-fails" target="_blank" style="color: #000; font-weight: 500; text-decoration: none; font-size: 15px;">
+                        Why Most Project Documentation Fails (And What Great PMs Do Differently)
+                    </a>
+                </div>
+                <div style="font-size: 12px; color: #666; margin-top: 3px;">
+                    William Meller • Project Management Compass • Oct 16<br>
+                    Score: 0.377 • 1,739 words • 0 comments • 1 likes
+                </div>
+            </li>
+        
+
+            <li style="margin: 12px 0; padding: 0; list-style: none;">
+                <div>
+                    <a href="https://mellernotes.substack.com/p/the-real-reason-your-meetings-go" target="_blank" style="color: #000; font-weight: 500; text-decoration: none; font-size: 15px;">
+                        The Real Reason Your Meetings Go Nowhere
+                    </a>
+                </div>
+                <div style="font-size: 12px; color: #666; margin-top: 3px;">
+                    William Meller • Meller Notes • Oct 17<br>
+                    Score: 0.360 • 1,039 words • 2 comments • 4 likes
+                </div>
+            </li>
+        
+</ul>
+<h3 style="font-size: 18px; font-weight: bold; margin: 20px 0 10px 0; color: #000;">Creator Economy (1 articles)</h3>
+<ul style="margin: 0; padding: 0;">
+
+            <li style="margin: 12px 0; padding: 0; list-style: none;">
+                <div>
+                    <a href="https://writebuildscale.substack.com/p/workshop-how-to-attract-your-first" target="_blank" style="color: #000; font-weight: 500; text-decoration: none; font-size: 15px;">
+                        [Workshop] How to Attract Your First $1,000+ Coaching Client
+                    </a>
+                </div>
+                <div style="font-size: 12px; color: #666; margin-top: 3px;">
+                    Jari Roomer • Write • Build • Scale • Oct 17<br>
+                    Score: 0.129 • 164 words • 0 comments • 4 likes
+                </div>
+            </li>
+        
+</ul>
+<h3 style="font-size: 18px; font-weight: bold; margin: 20px 0 10px 0; color: #000;">Entrepreneurship (1 articles)</h3>
+<ul style="margin: 0; padding: 0;">
+
+            <li style="margin: 12px 0; padding: 0; list-style: none;">
+                <div>
+                    <a href="https://millennialmasters.net/p/enjoy-the-journey-mindfulness" target="_blank" style="color: #000; font-weight: 500; text-decoration: none; font-size: 15px;">
+                        Enjoy the journey 🧭 All it takes is 10 mindful minutes
+                    </a>
+                </div>
+                <div style="font-size: 12px; color: #666; margin-top: 3px;">
+                    Daniel Ionescu • Millennial Masters • Oct 17<br>
+                    Score: 0.385 • 709 words • 2 comments • 8 likes
+                </div>
+            </li>
+        
+</ul>
+<h3 style="font-size: 18px; font-weight: bold; margin: 20px 0 10px 0; color: #000;">Marketing & Growth (1 articles)</h3>
+<ul style="margin: 0; padding: 0;">
+
+            <li style="margin: 12px 0; padding: 0; list-style: none;">
+                <div>
+                    <a href="https://moritzfritzen.substack.com/p/ultimate-retention-strategy-for-consumer" target="_blank" style="color: #000; font-weight: 500; text-decoration: none; font-size: 15px;">
+                        Ultimate Retention Strategy for Consumer Startups [Part 1]
+                    </a>
+                </div>
+                <div style="font-size: 12px; color: #666; margin-top: 3px;">
+                    Moritz Fritzen • Marketing in Progress with Moritz Fritzen • Oct 16<br>
+                    Score: 0.490 • 818 words • 5 comments • 18 likes
+                </div>
+            </li>
+        
+</ul>
+<h3 style="font-size: 18px; font-weight: bold; margin: 20px 0 10px 0; color: #000;">Personal Development (4 articles)</h3>
+<ul style="margin: 0; padding: 0;">
+
+            <li style="margin: 12px 0; padding: 0; list-style: none;">
+                <div>
+                    <a href="https://sebastianbarros.substack.com/p/unpopular-opinion-ai-will-reduce" target="_blank" style="color: #000; font-weight: 500; text-decoration: none; font-size: 15px;">
+                        Unpopular opinion: AI will reduce Telco traffic
+                    </a>
+                </div>
+                <div style="font-size: 12px; color: #666; margin-top: 3px;">
+                    Sebastian Barros • Sebastian’s Substack | Sebastian Barros • Oct 17<br>
+                    Score: 0.496 • 4,294 words • 0 comments • 1 likes
+                </div>
+            </li>
+        
+
+            <li style="margin: 12px 0; padding: 0; list-style: none;">
+                <div>
+                    <a href="https://sebastianbarros.substack.com/p/internet-dead-people-dont-understand" target="_blank" style="color: #000; font-weight: 500; text-decoration: none; font-size: 15px;">
+                        Internet is Dead: People Don’t Understand What Is Coming
+                    </a>
+                </div>
+                <div style="font-size: 12px; color: #666; margin-top: 3px;">
+                    Sebastian Barros • Sebastian’s Substack | Sebastian Barros • Oct 16<br>
+                    Score: 0.367 • 1,440 words • 0 comments • 3 likes
+                </div>
+            </li>
+        
+
+            <li style="margin: 12px 0; padding: 0; list-style: none;">
+                <div>
+                    <a href="https://sebastianbarros.substack.com/p/tech-will-not-save-you-ai-will-fire" target="_blank" style="color: #000; font-weight: 500; text-decoration: none; font-size: 15px;">
+                        Tech Will Not Save You. AI Will Fire You.
+                    </a>
+                </div>
+                <div style="font-size: 12px; color: #666; margin-top: 3px;">
+                    Sebastian Barros • Sebastian’s Substack | Sebastian Barros • Oct 17<br>
+                    Score: 0.340 • 1,640 words • 0 comments • 0 likes
+                </div>
+            </li>
+        
+
+            <li style="margin: 12px 0; padding: 0; list-style: none;">
+                <div>
+                    <a href="https://eliteleadersnewsletter.substack.com/p/190k-followers-later-finding-your" target="_blank" style="color: #000; font-weight: 500; text-decoration: none; font-size: 15px;">
+                        190k+ Followers Later: Finding Your Flow
+                    </a>
+                </div>
+                <div style="font-size: 12px; color: #666; margin-top: 3px;">
+                    Dennis Berry • Elite Leaders Newsletter • Oct 16<br>
+                    Score: 0.307 • 1 words • 6 comments • 20 likes
+                </div>
+            </li>
+        
+</ul>
+<h3 style="font-size: 18px; font-weight: bold; margin: 20px 0 10px 0; color: #000;">Product Management (1 articles)</h3>
+<ul style="margin: 0; padding: 0;">
+
+            <li style="margin: 12px 0; padding: 0; list-style: none;">
+                <div>
+                    <a href="https://thestrategystack.substack.com/p/launching-wwwthe-strategy-stackcom" target="_blank" style="color: #000; font-weight: 500; text-decoration: none; font-size: 15px;">
+                        Launching www.the-strategy-stack.com Countdown
+                    </a>
+                </div>
+                <div style="font-size: 12px; color: #666; margin-top: 3px;">
+                    Alex Pawlowski • The Strategy Stack • Oct 16<br>
+                    Score: 0.239 • 396 words • 0 comments • 6 likes
+                </div>
+            </li>
+        
+</ul>
+<h3 style="font-size: 18px; font-weight: bold; margin: 20px 0 10px 0; color: #000;">Productivity (1 articles)</h3>
+<ul style="margin: 0; padding: 0;">
+
+            <li style="margin: 12px 0; padding: 0; list-style: none;">
+                <div>
+                    <a href="https://riseandoptimize.substack.com/p/leak-4-the-renewals-fog" target="_blank" style="color: #000; font-weight: 500; text-decoration: none; font-size: 15px;">
+                        Leak #4: The Renewals Fog
+                    </a>
+                </div>
+                <div style="font-size: 12px; color: #666; margin-top: 3px;">
+                    Katie Barnes • Systems & Side Eyes • Oct 16<br>
+                    Score: 0.438 • 786 words • 2 comments • 14 likes
+                </div>
+            </li>
+        
+</ul>
+<h3 style="font-size: 18px; font-weight: bold; margin: 20px 0 10px 0; color: #000;">Real Estate (1 articles)</h3>
+<ul style="margin: 0; padding: 0;">
+
+            <li style="margin: 12px 0; padding: 0; list-style: none;">
+                <div>
+                    <a href="https://write10x.substack.com/p/the-18-month-window-that-will-define" target="_blank" style="color: #000; font-weight: 500; text-decoration: none; font-size: 15px;">
+                        The 18-Month Window That Will Define Your Next Decade
+                    </a>
+                </div>
+                <div style="font-size: 12px; color: #666; margin-top: 3px;">
+                    James Presbitero • Write10x • Oct 16<br>
+                    Score: 0.450 • 817 words • 1 comments • 16 likes
+                </div>
+            </li>
+        
+</ul>
+<h3 style="font-size: 18px; font-weight: bold; margin: 20px 0 10px 0; color: #000;">Technology (2 articles)</h3>
+<ul style="margin: 0; padding: 0;">
+
+            <li style="margin: 12px 0; padding: 0; list-style: none;">
+                <div>
+                    <a href="https://laserwars.net/p/anduril-eagleeye-army-helmet-mounted-display-history" target="_blank" style="color: #000; font-weight: 500; text-decoration: none; font-size: 15px;">
+                        The IVAS Delusion
+                    </a>
+                </div>
+                <div style="font-size: 12px; color: #666; margin-top: 3px;">
+                    Jared Keller • Laser Wars • Oct 16<br>
+                    Score: 0.463 • 2,686 words • 0 comments • 2 likes
+                </div>
+            </li>
+        
+
+            <li style="margin: 12px 0; padding: 0; list-style: none;">
+                <div>
+                    <a href="https://datacenterrichness.substack.com/p/the-double-wide-ai-racks-have-arrived" target="_blank" style="color: #000; font-weight: 500; text-decoration: none; font-size: 15px;">
+                        The Double-Wide AI Racks Have Arrived
+                    </a>
+                </div>
+                <div style="font-size: 12px; color: #666; margin-top: 3px;">
+                    Rich Miller • Data Center Richness • Oct 17<br>
+                    Score: 0.294 • 1,123 words • 0 comments • 2 likes
+                </div>
+            </li>
+        
+</ul>
+    </div>
+</body>
+</html>
